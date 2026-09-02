@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Interface Inclusiva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Link de atalho para saltar a navegação e ir direto ao conteúdo -->
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- Cabeçalho Principal com Navegação Semântica -->
+  <header role="banner">
+    <nav aria-label="Navegação Principal">
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" tabIndex="-1">
+    <section>
+      <h1>Acessibilidade na Web</h1>
+      <p>Interfaces inclusivas beneficiam todos os usuários, garantindo autonomia e usabilidade.</p>
+    </section>
+
+    <!-- Formulário Inclusivo -->
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Envie sua mensagem</h2>
+      
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <!-- O 'for' liga a label diretamente ao input -->
+          <label for="name">Nome completo:</label>
+          <input type="text" id="name" name="name" required aria-required="true">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error">
+          <!-- Mensagem de erro associada via aria-describedby -->
+          <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Exemplo de Modal Acessível -->
+    <section>
+      <h2>Componente Interativo</h2>
+      <button id="open-modal-btn" aria-haspopup="dialog">Abrir Modal</button>
+
+      <div id="modal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+          <h3 id="modal-title">Título do Modal</h3>
+          <p>Este é um modal totalmente acessível via teclado.</p>
+          <button id="close-modal-btn">Fechar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <role footer role="contentinfo">
+    <p>&copy; 2026 Projeto Acessível. Todos os direitos reservados.</p>
+  </role>
+
+  <script src="script.js"></script>
+</body>
+</html>
